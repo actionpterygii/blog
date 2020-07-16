@@ -1,12 +1,26 @@
 # ぶろぐ
 ## 仕様予定
+### 絶対
 - React
-- TypaScript
-- styled-components
 - Prettier
 - microCMS
 - Swagger
-### テンプレート
+### オプション(優先度順)
+- TypaScript
+  - 最低限はわかりますがReactでとなると怖いのと、先にすすめていきたいので
+- styled-components
+  - 最初からしててもいいかも少し考えます
+- StoryBook
+  - 優先度ひくい
+## 順序予定
+1. TOPページのタイトルとかだけ
+1. APIやって取得表示ためし
+1. APIのことを考える
+1. 記事ページ
+1. 記事一覧のあるページ(TOP,カテゴリ,タグ)
+1. お問い合わせフォーム
+1. 検索
+## テンプレート
 - TOP
   - タイトル
   - 説明
