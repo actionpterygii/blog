@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
+import {PATH, KEY} from './config.js';
+
 function Header()
 {
     const [info, getInfo] = useState([]);
 
     useEffect(() => {
-        axios.get('https://actionpterygii.microcms.io/api/v1/information', {
-            headers: {"X-API-KEY": "3eb7bf23-beb0-472c-82af-0b67cdb6ca22"}
+        axios.get(PATH + 'information', {
+            headers: {"X-API-KEY": KEY}
         }).then(res => getInfo(res.data))
     },[]);
 
