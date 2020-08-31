@@ -1,3 +1,5 @@
+[GHP](https://actionpterygii.github.io/blog/)
+
 # ぶろぐつくりについて
 ## 仕様予定
 ### 絶対
