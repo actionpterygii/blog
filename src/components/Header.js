@@ -1,18 +1,14 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import useAPI from "../scripts/useAPI";
 
 function Header() {
-  const {blogInfo, fetchBlogInfo} = useAPI();
-
-  useEffect(() => {
-    fetchBlogInfo();
-  }, []);
+  const {blogInfo} = useAPI();
 
   return (
-    <div>
+    <header>
       <h1>{blogInfo.title}</h1>
       <p>{blogInfo.description}</p>
-    </div>
+    </header>
   );
 }
 
