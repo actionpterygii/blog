@@ -2,33 +2,41 @@ import {useSelector, useDispatch} from "react-redux";
 import axios from "axios";
 
 import {PATH, KEY} from "../config";
-import {fetchBlogInfoAction, fetchBlogPostAction} from "./actions";
+import {
+  fetchBlogInfoAction,
+  fetchBlogPostAction,
+  successFetchBlogPostAction,
+  failedFetchBlogPostAction
+} from "./actions";
 
 export default function useAPI() {
   const dispatch = useDispatch();
 
-  const blogInfo = useSelector(state => state.blogInfo);
-  const blogPost = useSelector(state => state.blogPost);
+  const blogInfo = useSelector((state) => state.blogInfo);
+  const blogPost = useSelector((state) => state.blogPost);
 
   const fetchBlogInfo = () => {
     axios
       .get(PATH + "information", {
         headers: {"X-API-KEY": KEY}
       })
-      .then(res => {
+      .then((res) => {
         dispatch(fetchBlogInfoAction(res.data));
       });
   };
 
-  const fetchBlogPost = id => {
-    axios
+  const fetchBlogPost = async (id) => {
+    dispatch(fetchBlogPostAction());
+    await axios
       .get(PATH + "post/post" + id, {
         headers: {"X-API-KEY": KEY}
       })
-      .then(res => {
-        dispatch(fetchBlogPostAction(res.data));
+      .then((res) => {
+        dispatch(successFetchBlogPostAction(res.data));
       })
-      .catch();
+      .catch(() => {
+        dispatch(failedFetchBlogPostAction());
+      });
   };
 
   return {

@@ -11,12 +11,30 @@ function Post() {
     fetchBlogPost(key);
   }, []);
 
-  return (
-    <div>
-      <h2>{blogPost.title}</h2>
-      <div>{blogPost.content}</div>
-    </div>
-  );
+  if (blogPost.fetching) {
+    return <div>よみこみちゅう</div>;
+  } else {
+    if (blogPost.success) {
+      return (
+        <div>
+          <h2>{blogPost.title}</h2>
+          <div>{blogPost.content}</div>
+          <div>{blogPost.category.name}</div>
+          <ul>
+            {blogPost.tags.map((tag, i) => (
+              <li key={i}>
+                <a href={`/#/tags/${tag.id}`}>{tag.name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    } else if (blogPost.failed) {
+      return <div>ないです</div>;
+    } else {
+      return <div>a</div>;
+    }
+  }
 }
 
 export default Post;
