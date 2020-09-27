@@ -27,7 +27,7 @@ function Post() {
           <ul>
             {blogPost.tags.map((tag, i) => (
               <li key={i}>
-                <a href={`/#/tags/${tag.id}`}>{tag.name}</a>
+                <a href={`/#/tag/${tag.id}`}>{tag.name}</a>
               </li>
             ))}
           </ul>
@@ -36,7 +36,7 @@ function Post() {
     } else if (blogPost.failed) {
       return <div>ないです</div>;
     } else {
-      return <div>a</div>;
+      return <div>なにか普通じゃない状態です</div>;
     }
   }
 }
