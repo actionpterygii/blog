@@ -6,7 +6,10 @@ import {
   fetchBlogInfoAction,
   fetchBlogPostAction,
   successFetchBlogPostAction,
-  failedFetchBlogPostAction
+  failedFetchBlogPostAction,
+  fetchBlogCategoryAction,
+  successFetchBlogCategoryAction,
+  failedFetchBlogCategoryAction
 } from "./actions";
 
 export default function useAPI() {
@@ -14,6 +17,7 @@ export default function useAPI() {
 
   const blogInfo = useSelector((state) => state.blogInfo);
   const blogPost = useSelector((state) => state.blogPost);
+  const blogCategory = useSelector((state) => state.blogCategory);
 
   const fetchBlogInfo = () => {
     axios
@@ -39,10 +43,26 @@ export default function useAPI() {
       });
   };
 
+  const fetchBlogCategory = async (id) => {
+    dispatch(fetchBlogCategoryAction());
+    await axios
+      .get(PATH + "category/" + id, {
+        headers: {"X-API-KEY": KEY}
+      })
+      .then((res) => {
+        dispatch(successFetchBlogCategoryAction(res.data));
+      })
+      .catch(() => {
+        dispatch(failedFetchBlogCategoryAction());
+      });
+  };
+
   return {
     blogInfo,
     fetchBlogInfo,
     blogPost,
-    fetchBlogPost
+    fetchBlogPost,
+    blogCategory,
+    fetchBlogCategory
   };
 }

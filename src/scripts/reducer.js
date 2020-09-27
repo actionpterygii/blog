@@ -1,4 +1,4 @@
-const initialState = {blogInfo: {}, blogPost: {}};
+const initialState = {blogInfo: {}, blogPost: {}, blogCategory: {}};
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -8,6 +8,7 @@ export default function reducer(state = initialState, action) {
         blogInfo: action.payload
       };
     }
+
     case "FETCH_BLOG_POST": {
       return {
         ...state,
@@ -29,6 +30,29 @@ export default function reducer(state = initialState, action) {
         blogPost: {failed: true}
       };
     }
+
+    case "FETCH_BLOG_CATEGORY": {
+      return {
+        ...state,
+        blogCategory: {fetching: true}
+      };
+    }
+    case "SUCCESS_FETCH_BLOG_CATEGORY": {
+      return {
+        ...state,
+        blogCategory: {
+          ...action.blogCategory,
+          success: true
+        }
+      };
+    }
+    case "FAILED_FETCH_BLOG_CATEGORY": {
+      return {
+        ...state,
+        blogCategory: {failed: true}
+      };
+    }
+
     default: {
       return state;
     }
