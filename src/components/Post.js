@@ -19,7 +19,11 @@ function Post() {
         <div>
           <h2>{blogPost.title}</h2>
           <div>{blogPost.content}</div>
-          <div>{blogPost.category.name}</div>
+          <div>
+            <a href={`/#/category/${blogPost.category.id}`}>
+              {blogPost.category.name}
+            </a>
+          </div>
           <ul>
             {blogPost.tags.map((tag, i) => (
               <li key={i}>
