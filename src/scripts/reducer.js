@@ -1,4 +1,9 @@
-const initialState = {blogInfo: {}, blogPost: {}, blogCategory: {}};
+const initialState = {
+  blogInfo: {},
+  blogPostList: {},
+  blogPost: {},
+  blogCategory: {}
+};
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -9,10 +14,57 @@ export default function reducer(state = initialState, action) {
       };
     }
 
+    case "FETCH_BLOG_POST_LIST": {
+      if (action.status === "continue") {
+        return {
+          ...state,
+          blogPostList: {
+            ...state.blogPostList,
+            moreFetching: true
+          }
+        };
+      } else {
+        return {
+          ...state,
+          blogPostList: {fetching: true}
+        };
+      }
+    }
+    case "SUCCESS_FETCH_BLOG_POST_LIST": {
+      console.log(state);
+      if (action.status === "continue") {
+        return {
+          ...state,
+          blogPostList: {
+            ...action.blogPostList,
+            contents: [
+              ...state.blogPostList.contents,
+              ...action.blogPostList.contents
+            ],
+            success: true
+          }
+        };
+      } else {
+        return {
+          ...state,
+          blogPostList: {
+            ...action.blogPostList,
+            success: true
+          }
+        };
+      }
+    }
+    case "FAILED_FETCH_BLOG_POST_LIST": {
+      return {
+        ...state,
+        blogPostList: {failed: true, err: action.err}
+      };
+    }
+
     case "FETCH_BLOG_POST": {
       return {
         ...state,
-        blogPost: {fetching: true}
+        blogPostList: {fetching: true}
       };
     }
     case "SUCCESS_FETCH_BLOG_POST": {

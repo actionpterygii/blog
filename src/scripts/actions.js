@@ -3,6 +3,19 @@ export const fetchBlogInfoAction = (payload) => ({
   payload
 });
 
+export const fetchBlogPostListAction = (status) => ({
+  type: "FETCH_BLOG_POST_LIST",
+  status
+});
+export const successFetchBlogPostListAction = (blogPostList, status) => ({
+  type: "SUCCESS_FETCH_BLOG_POST_LIST",
+  blogPostList,
+  status
+});
+export const failedFetchBlogPostListAction = () => ({
+  type: "FAILED_FETCH_BLOG_POST_LIST"
+});
+
 export const fetchBlogPostAction = () => ({
   type: "FETCH_BLOG_POST"
 });
