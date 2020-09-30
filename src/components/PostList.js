@@ -9,13 +9,11 @@ function PostList() {
     fetchBlogPostList("new");
   }, []);
 
-  console.log(blogPostList);
-
-  if (blogPostList.fetching) {
-    return <div>よみこみちゅう</div>;
-  } else {
-    if (blogPostList.success) {
-      return (
+  return (
+    <div>
+      {blogPostList.fetching ? (
+        <div>よみこみちゅう</div>
+      ) : blogPostList.success ? (
         <div>
           <h2>記事一覧</h2>
           <ul>
@@ -49,13 +47,13 @@ function PostList() {
             )}
           </div>
         </div>
-      );
-    } else if (blogPostList.failed) {
-      return <div>ないです</div>;
-    } else {
-      return <div>なにか普通じゃない状態です</div>;
-    }
-  }
+      ) : blogPostList.failed ? (
+        <div>ないです</div>
+      ) : (
+        <div>なにか普通じゃない状態です</div>
+      )}
+    </div>
+  );
 }
 
 export default PostList;
