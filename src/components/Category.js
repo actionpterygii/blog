@@ -54,7 +54,9 @@ function Category() {
                   ) : blogPostList.totalCount > blogPostList.contents.length ? (
                     <button
                       type="button"
-                      onClick={() => fetchBlogPostList("continue")}
+                      onClick={() =>
+                        fetchBlogPostList("continue", "category", key)
+                      }
                     >
                       更に読み込む
                     </button>
