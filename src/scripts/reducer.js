@@ -3,7 +3,9 @@ const initialState = {
   blogPostList: {},
   blogPost: {},
   blogCategoryList: {},
-  blogCategory: {}
+  blogCategory: {},
+  blogTagList: {},
+  blogTag: {}
 };
 
 export default function reducer(state = initialState, action) {
@@ -125,6 +127,50 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         blogCategory: {failed: true}
+      };
+    }
+
+    case "FETCH_BLOG_TAG_LIST": {
+      return {
+        ...state,
+        blogTagList: {fetching: true}
+      };
+    }
+    case "SUCCESS_FETCH_BLOG_TAG_LIST": {
+      return {
+        ...state,
+        blogTagList: {
+          ...action.blogTagList,
+          success: true
+        }
+      };
+    }
+    case "FAILED_FETCH_BLOG_TAG_LIST": {
+      return {
+        ...state,
+        blogTagList: {failed: true}
+      };
+    }
+
+    case "FETCH_BLOG_TAG": {
+      return {
+        ...state,
+        blogTag: {fetching: true}
+      };
+    }
+    case "SUCCESS_FETCH_BLOG_TAG": {
+      return {
+        ...state,
+        blogTag: {
+          ...action.blogTag,
+          success: true
+        }
+      };
+    }
+    case "FAILED_FETCH_BLOG_TAG": {
+      return {
+        ...state,
+        blogTag: {failed: true}
       };
     }
 

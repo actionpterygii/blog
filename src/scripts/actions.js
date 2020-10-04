@@ -47,3 +47,24 @@ export const successFetchBlogCategoryAction = (blogCategory) => ({
 export const failedFetchBlogCategoryAction = () => ({
   type: "FAILED_FETCH_BLOG_CATEGORY"
 });
+
+export const fetchBlogTagListAction = () => ({
+  type: "FETCH_BLOG_TAG_LIST"
+});
+export const successFetchBlogTagListAction = (blogTagList) => ({
+  type: "SUCCESS_FETCH_BLOG_TAG_LIST",
+  blogTagList
+});
+export const failedFetchBlogTagListAction = () => ({
+  type: "FAILED_FETCH_BLOG_TAG_LIST"
+});
+export const fetchBlogTagAction = () => ({
+  type: "FETCH_BLOG_TAG"
+});
+export const successFetchBlogTagAction = (blogTag) => ({
+  type: "SUCCESS_FETCH_BLOG_TAG",
+  blogTag
+});
+export const failedFetchBlogTagAction = () => ({
+  type: "FAILED_FETCH_BLOG_TAG"
+});

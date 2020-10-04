@@ -15,7 +15,13 @@ import {
   failedFetchBlogCategoryListAction,
   fetchBlogCategoryAction,
   successFetchBlogCategoryAction,
-  failedFetchBlogCategoryAction
+  failedFetchBlogCategoryAction,
+  fetchBlogTagListAction,
+  successFetchBlogTagListAction,
+  failedFetchBlogTagListAction,
+  fetchBlogTagAction,
+  successFetchBlogTagAction,
+  failedFetchBlogTagAction
 } from "./actions";
 
 export default function useAPI() {
@@ -26,6 +32,8 @@ export default function useAPI() {
   const blogPost = useSelector((state) => state.blogPost);
   const blogCategoryList = useSelector((state) => state.blogCategoryList);
   const blogCategory = useSelector((state) => state.blogCategory);
+  const blogTagList = useSelector((state) => state.blogTagList);
+  const blogTag = useSelector((state) => state.blogTag);
 
   const fetchBlogInfo = () => {
     axios
@@ -116,6 +124,34 @@ export default function useAPI() {
       });
   };
 
+  const fetchBlogTagList = async () => {
+    dispatch(fetchBlogTagListAction());
+    await axios
+      .get(`${API_PATH}tag?limit=99`, {
+        headers: {"X-API-KEY": API_KEY}
+      })
+      .then((res) => {
+        dispatch(successFetchBlogTagListAction(res.data));
+      })
+      .catch(() => {
+        dispatch(failedFetchBlogTagListAction());
+      });
+  };
+
+  const fetchBlogTag = async (id) => {
+    dispatch(fetchBlogTagAction());
+    await axios
+      .get(`${API_PATH}tag/${id}`, {
+        headers: {"X-API-KEY": API_KEY}
+      })
+      .then((res) => {
+        dispatch(successFetchBlogTagAction(res.data));
+      })
+      .catch(() => {
+        dispatch(failedFetchBlogTagAction());
+      });
+  };
+
   const postIdToPath = (id) => {
     return id.replace(/post/g, "");
   };
@@ -131,6 +167,10 @@ export default function useAPI() {
     fetchBlogCategoryList,
     blogCategory,
     fetchBlogCategory,
+    blogTagList,
+    fetchBlogTagList,
+    blogTag,
+    fetchBlogTag,
     postIdToPath
   };
 }

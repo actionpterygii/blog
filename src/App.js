@@ -10,8 +10,8 @@ import PostList from "./components/PostList";
 import Post from "./components/Post";
 import CategoryList from "./components/CategoryList";
 import Category from "./components/Category";
-// import TagList from "./components/TagList";
-// import Tag from "./components/Tag";
+import TagList from "./components/TagList";
+import Tag from "./components/Tag";
 import Footer from "./components/Footer";
 
 function App() {
@@ -32,8 +32,8 @@ function App() {
           <Route exact path="/post/:key" component={Post} />
           <Route exact path="/category" component={CategoryList} />
           <Route exact path="/category/:key" component={Category} />
-          {/* <Route exact path="/tag" component={tagList} />
-          <Route exact path="/tag/:key" component={tag} /> */}
+          <Route exact path="/tag" component={TagList} />
+          <Route exact path="/tag/:key" component={Tag} />
         </Switch>
       </main>
       <Footer />
