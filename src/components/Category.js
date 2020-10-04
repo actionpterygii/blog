@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import {useParams} from "react-router-dom";
 
+import {PATH} from "../config";
 import useAPI from "../scripts/useAPI";
 
 function Category() {
@@ -35,7 +36,7 @@ function Category() {
                 <ul>
                   {blogPostList.contents.map((blogPost, i) => (
                     <li key={i}>
-                      <a href={`/#/post/${postIdToPath(blogPost.id)}`}>
+                      <a href={`${PATH}post/${postIdToPath(blogPost.id)}`}>
                         <h4>{blogPost.title}</h4>
                         <div>{blogPost.content}</div>
                         <div>{blogPost.category.name}</div>
