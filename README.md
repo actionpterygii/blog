@@ -65,6 +65,7 @@
 - 記事一覧取得関数の引数で色々。検索もカテゴリ記事も、記事一覧を呼ぶものはすべてここに
 - 一覧の読み込み数を決めてそれ以降は更に読み込むボタンで！その時も読込中は読み込み中って言う
 - パスを`/blog`からのようにしなければならない
+- `React Hook useEffect has a missing dependency: 'fetchBlogCategoryList'. Either include it or remove the dependency array`とかがでているね
 
 # 履歴
 1. createreactapp
