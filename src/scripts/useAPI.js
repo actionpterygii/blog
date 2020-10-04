@@ -1,7 +1,7 @@
 import {useSelector, useDispatch} from "react-redux";
 import axios from "axios";
 
-import {PATH, KEY} from "../config";
+import {API_PATH, API_KEY} from "../config";
 import {
   fetchBlogInfoAction,
   fetchBlogPostListAction,
@@ -10,6 +10,9 @@ import {
   fetchBlogPostAction,
   successFetchBlogPostAction,
   failedFetchBlogPostAction,
+  fetchBlogCategoryListAction,
+  successFetchBlogCategoryListAction,
+  failedFetchBlogCategoryListAction,
   fetchBlogCategoryAction,
   successFetchBlogCategoryAction,
   failedFetchBlogCategoryAction
@@ -21,12 +24,13 @@ export default function useAPI() {
   const blogInfo = useSelector((state) => state.blogInfo);
   const blogPostList = useSelector((state) => state.blogPostList);
   const blogPost = useSelector((state) => state.blogPost);
+  const blogCategoryList = useSelector((state) => state.blogCategoryList);
   const blogCategory = useSelector((state) => state.blogCategory);
 
   const fetchBlogInfo = () => {
     axios
-      .get(PATH + "information", {
-        headers: {"X-API-KEY": KEY}
+      .get(API_PATH + "information", {
+        headers: {"X-API-KEY": API_KEY}
       })
       .then((res) => {
         dispatch(fetchBlogInfoAction(res.data));
@@ -59,8 +63,8 @@ export default function useAPI() {
       }
     })();
     await axios
-      .get(`${PATH}post?limit=${limit}${offsetQuery}${searchQuery}`, {
-        headers: {"X-API-KEY": KEY}
+      .get(`${API_PATH}post?limit=${limit}${offsetQuery}${searchQuery}`, {
+        headers: {"X-API-KEY": API_KEY}
       })
       .then((res) => {
         dispatch(successFetchBlogPostListAction(res.data, status));
@@ -73,8 +77,8 @@ export default function useAPI() {
   const fetchBlogPost = async (id) => {
     dispatch(fetchBlogPostAction());
     await axios
-      .get(PATH + "post/post" + id, {
-        headers: {"X-API-KEY": KEY}
+      .get(`${API_PATH}post/post${id}`, {
+        headers: {"X-API-KEY": API_KEY}
       })
       .then((res) => {
         dispatch(successFetchBlogPostAction(res.data));
@@ -84,11 +88,25 @@ export default function useAPI() {
       });
   };
 
+  const fetchBlogCategoryList = async () => {
+    dispatch(fetchBlogCategoryListAction());
+    await axios
+      .get(`${API_PATH}category?limit=99`, {
+        headers: {"X-API-KEY": API_KEY}
+      })
+      .then((res) => {
+        dispatch(successFetchBlogCategoryListAction(res.data));
+      })
+      .catch(() => {
+        dispatch(failedFetchBlogCategoryListAction());
+      });
+  };
+
   const fetchBlogCategory = async (id) => {
     dispatch(fetchBlogCategoryAction());
     await axios
-      .get(PATH + "category/" + id, {
-        headers: {"X-API-KEY": KEY}
+      .get(`${API_PATH}category/${id}`, {
+        headers: {"X-API-KEY": API_KEY}
       })
       .then((res) => {
         dispatch(successFetchBlogCategoryAction(res.data));
@@ -109,6 +127,8 @@ export default function useAPI() {
     fetchBlogPostList,
     blogPost,
     fetchBlogPost,
+    blogCategoryList,
+    fetchBlogCategoryList,
     blogCategory,
     fetchBlogCategory,
     postIdToPath

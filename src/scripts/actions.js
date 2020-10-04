@@ -27,6 +27,16 @@ export const failedFetchBlogPostAction = () => ({
   type: "FAILED_FETCH_BLOG_POST"
 });
 
+export const fetchBlogCategoryListAction = () => ({
+  type: "FETCH_BLOG_CATEGORY_LIST"
+});
+export const successFetchBlogCategoryListAction = (blogCategoryList) => ({
+  type: "SUCCESS_FETCH_BLOG_CATEGORY_LIST",
+  blogCategoryList
+});
+export const failedFetchBlogCategoryListAction = () => ({
+  type: "FAILED_FETCH_BLOG_CATEGORY_LIST"
+});
 export const fetchBlogCategoryAction = () => ({
   type: "FETCH_BLOG_CATEGORY"
 });

@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 
+import {PATH} from "../config";
 import useAPI from "../scripts/useAPI";
 
 function PostList() {
@@ -19,7 +20,7 @@ function PostList() {
           <ul>
             {blogPostList.contents.map((blogPost, i) => (
               <li key={i}>
-                <a href={`/#/post/${postIdToPath(blogPost.id)}`}>
+                <a href={`${PATH}post/${postIdToPath(blogPost.id)}`}>
                   <h3>{blogPost.title}</h3>
                   <div>{blogPost.content}</div>
                   <div>{blogPost.category.name}</div>

@@ -2,6 +2,7 @@ const initialState = {
   blogInfo: {},
   blogPostList: {},
   blogPost: {},
+  blogCategoryList: {},
   blogCategory: {}
 };
 
@@ -80,6 +81,28 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         blogPost: {failed: true}
+      };
+    }
+
+    case "FETCH_BLOG_CATEGORY_LIST": {
+      return {
+        ...state,
+        blogCategoryList: {fetching: true}
+      };
+    }
+    case "SUCCESS_FETCH_BLOG_CATEGORY_LIST": {
+      return {
+        ...state,
+        blogCategoryList: {
+          ...action.blogCategoryList,
+          success: true
+        }
+      };
+    }
+    case "FAILED_FETCH_BLOG_CATEGORY_LIST": {
+      return {
+        ...state,
+        blogCategoryList: {failed: true}
       };
     }
 
