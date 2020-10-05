@@ -34,7 +34,6 @@ export default function reducer(state = initialState, action) {
       }
     }
     case "SUCCESS_FETCH_BLOG_POST_LIST": {
-      console.log(state);
       if (action.status === "continue") {
         return {
           ...state,
