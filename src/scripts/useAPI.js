@@ -4,6 +4,8 @@ import axios from "axios";
 import {API_PATH, API_KEY} from "../config";
 import {
   fetchBlogInfoAction,
+  successFetchBlogInfoAction,
+  failedFetchBlogInfoAction,
   fetchBlogPostListAction,
   successFetchBlogPostListAction,
   failedFetchBlogPostListAction,
@@ -35,13 +37,17 @@ export default function useAPI() {
   const blogTagList = useSelector((state) => state.blogTagList);
   const blogTag = useSelector((state) => state.blogTag);
 
-  const fetchBlogInfo = () => {
-    axios
+  const fetchBlogInfo = async () => {
+    dispatch(fetchBlogInfoAction());
+    await axios
       .get(API_PATH + "information", {
         headers: {"X-API-KEY": API_KEY}
       })
       .then((res) => {
-        dispatch(fetchBlogInfoAction(res.data));
+        dispatch(successFetchBlogInfoAction(res.data));
+      })
+      .catch(() => {
+        dispatch(failedFetchBlogInfoAction());
       });
   };
 

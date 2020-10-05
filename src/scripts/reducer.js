@@ -13,7 +13,22 @@ export default function reducer(state = initialState, action) {
     case "FETCH_BLOG_INFO": {
       return {
         ...state,
-        blogInfo: action.payload
+        blogInfo: {fetching: true}
+      };
+    }
+    case "SUCCESS_FETCH_BLOG_INFO": {
+      return {
+        ...state,
+        blogInfo: {
+          ...action.blogInfo,
+          success: true
+        }
+      };
+    }
+    case "FAILED_FETCH_BLOG_INFO": {
+      return {
+        ...state,
+        blogInfo: {failed: true}
       };
     }
 
