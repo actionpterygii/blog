@@ -7,7 +7,7 @@ function CategoryList() {
   const {blogCategoryList, fetchBlogCategoryList} = useAPI();
 
   useEffect(() => {
-    fetchBlogCategoryList("new");
+    fetchBlogCategoryList();
   }, []);
 
   return (

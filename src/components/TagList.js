@@ -7,7 +7,7 @@ function TagList() {
   const {blogTagList, fetchBlogTagList} = useAPI();
 
   useEffect(() => {
-    fetchBlogTagList("new");
+    fetchBlogTagList();
   }, []);
 
   return (
