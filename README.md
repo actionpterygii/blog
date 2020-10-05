@@ -66,6 +66,12 @@
 - 一覧の読み込み数を決めてそれ以降は更に読み込むボタンで！その時も読込中は読み込み中って言う
 - パスを`/blog`からのようにしなければならない
 - `React Hook useEffect has a missing dependency: 'fetchBlogCategoryList'. Either include it or remove the dependency array`とかがでているね
+  - useEffectの第2引数に`それが変更されたら実行される`のそれがないからなのですが今回のは最初に1回じっこうされればよいので空でいいんですよね。
+    - `// eslint-disable-next-line react-hooks/exhaustive-deps`をそれが出る行の上につけることででません！
+      - これをすることでわかっててやってることを伝えることができます
+      - `//`ではなく`/*  */`パターンにするとファイル全体にそうできますがよくないよねそれは！
+- ブログタイトルとかは変えれるようにAPIからにしたいですがそれは流石にねmetaとかもあるしこっちでいいのではないかと
+  - APIのURLとかKEYは結局ここでやるんやしね
 
 # 履歴
 1. createreactapp
