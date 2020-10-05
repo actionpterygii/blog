@@ -17,6 +17,7 @@ function Tag() {
   useEffect(() => {
     fetchBlogTag(key);
     fetchBlogPostList("new", "tags", key);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

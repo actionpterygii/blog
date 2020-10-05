@@ -10,6 +10,7 @@ function Post() {
 
   useEffect(() => {
     fetchBlogPost(key);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (blogPost.fetching) {

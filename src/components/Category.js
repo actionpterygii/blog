@@ -17,6 +17,7 @@ function Category() {
   useEffect(() => {
     fetchBlogCategory(key);
     fetchBlogPostList("new", "category", key);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

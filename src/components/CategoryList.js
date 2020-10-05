@@ -8,6 +8,7 @@ function CategoryList() {
 
   useEffect(() => {
     fetchBlogCategoryList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
