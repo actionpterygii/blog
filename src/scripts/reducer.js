@@ -1,4 +1,5 @@
 const initialState = {
+  searchText: "",
   blogInfo: {},
   blogPostList: {},
   blogPost: {},
@@ -10,6 +11,13 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+    case "CHANGE_SEARCH_TEXT": {
+      return {
+        ...state,
+        searchText: action.text
+      };
+    }
+
     case "FETCH_BLOG_INFO": {
       return {
         ...state,

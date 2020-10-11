@@ -74,3 +74,8 @@ export const successFetchBlogTagAction = (blogTag) => ({
 export const failedFetchBlogTagAction = () => ({
   type: "FAILED_FETCH_BLOG_TAG"
 });
+
+export const changeSearchTextAction = (text) => ({
+  type: "CHANGE_SEARCH_TEXT",
+  text
+});

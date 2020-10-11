@@ -12,6 +12,7 @@ import CategoryList from "./components/CategoryList";
 import Category from "./components/Category";
 import TagList from "./components/TagList";
 import Tag from "./components/Tag";
+import Search from "./components/Search";
 import Footer from "./components/Footer";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route exact path="/category/:key" component={Category} />
           <Route exact path="/tag" component={TagList} />
           <Route exact path="/tag/:key" component={Tag} />
+          <Route exact path="/search" component={Search} />
         </Switch>
       </main>
       <Footer />
