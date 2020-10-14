@@ -5,7 +5,7 @@ import "./App.css";
 
 import useAPI from "./scripts/useAPI";
 import Header from "./components/Header";
-import Top from "./components/Top";
+import Menu from "./components/Menu";
 import PostList from "./components/PostList";
 import Post from "./components/Post";
 import CategoryList from "./components/CategoryList";
@@ -29,7 +29,7 @@ function App() {
       <main>
         <img src={logo} className="App-logo" alt="logo" />
         <Switch>
-          <Route exact path="/" component={Top} />
+          <Route exact path="/" component={PostList} />
           <Route exact path="/post" component={PostList} />
           <Route exact path="/post/:key" component={Post} />
           <Route exact path="/category" component={CategoryList} />
@@ -38,6 +38,7 @@ function App() {
           <Route exact path="/tag/:key" component={Tag} />
           <Route exact path="/search" component={Search} />
         </Switch>
+        <Menu />
       </main>
       <Footer />
     </HashRouter>

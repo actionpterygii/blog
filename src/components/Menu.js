@@ -2,10 +2,9 @@ import React from "react";
 
 import {PATH} from "../config";
 
-function Top() {
+function Menu() {
   return (
     <div>
-      <h2>とっぷ</h2>
       <div>
         <a href={`${PATH}post`}>記事一覧</a>
       </div>
@@ -22,4 +21,4 @@ function Top() {
   );
 }
 
-export default Top;
+export default Menu;
