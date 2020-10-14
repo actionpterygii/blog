@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {HashRouter, Switch, Route} from "react-router-dom";
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 
 import useAPI from "./scripts/useAPI";
 import Header from "./components/Header";
