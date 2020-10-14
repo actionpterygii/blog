@@ -66,7 +66,7 @@ export default function useAPI() {
       }
     })();
     const searchQuery = (() => {
-      if (target === "all") {
+      if (target === "post") {
         return `&q=${value}`;
       } else if (target === "category") {
         return `&filters=${target}[equals]${value}`;

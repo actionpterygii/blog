@@ -9,7 +9,7 @@ function PostList() {
   const {blogPostList, fetchBlogPostList, postIdToPath} = useAPI();
 
   useEffect(() => {
-    fetchBlogPostList("new", "all", searchText);
+    fetchBlogPostList("new", "post", searchText);
   }, [searchText]);
 
   return (
@@ -50,7 +50,9 @@ function PostList() {
                   ) : blogPostList.totalCount > blogPostList.contents.length ? (
                     <button
                       type="button"
-                      onClick={() => fetchBlogPostList("continue")}
+                      onClick={() =>
+                        fetchBlogPostList("continue", "post", searchText)
+                      }
                     >
                       更に読み込む
                     </button>
