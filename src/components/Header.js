@@ -1,14 +1,12 @@
 import React from "react";
 
-import useAPI from "../scripts/useAPI";
+import {TITLE, DESCRIPTION} from "../config";
 
 function Header() {
-  const {blogInfo} = useAPI();
-
   return (
     <header>
-      <h1>{blogInfo.title}</h1>
-      <p>{blogInfo.description}</p>
+      <h1>{TITLE}</h1>
+      <p>{DESCRIPTION}</p>
     </header>
   );
 }

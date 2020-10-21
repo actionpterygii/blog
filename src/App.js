@@ -27,7 +27,7 @@ function App() {
     <HashRouter>
       <Header />
       <main>
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <Switch>
           <Route exact path="/" component={PostList} />
           <Route exact path="/post" component={PostList} />

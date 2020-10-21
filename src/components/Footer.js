@@ -1,13 +1,11 @@
 import React from "react";
 
-import useAPI from "../scripts/useAPI";
+import {COPYRIGHT} from "../config";
 
 function Footer() {
-  const {blogInfo} = useAPI();
-
   return (
     <footer>
-      <small>&copy; 2020 {blogInfo.copyright}</small>
+      <small>&copy; 2020 {COPYRIGHT}</small>
     </footer>
   );
 }
