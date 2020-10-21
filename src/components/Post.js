@@ -38,7 +38,7 @@ function Post() {
     } else if (blogPost.failed) {
       return <div>ないです</div>;
     } else {
-      return <div>なにか普通じゃない状態です</div>;
+      return <div>待機中です</div>;
     }
   }
 }

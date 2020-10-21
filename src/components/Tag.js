@@ -68,14 +68,14 @@ function Tag() {
             ) : blogPostList.failed ? (
               <div>ないです</div>
             ) : (
-              <div>なにか普通じゃない状態です</div>
+              <div>待機中です</div>
             )}
           </div>
         </div>
       ) : blogTag.failed ? (
         <div>ないです</div>
       ) : (
-        <div>なにか普通じゃない状態です。</div>
+        <div>待機中です。</div>
       )}
     </div>
   );

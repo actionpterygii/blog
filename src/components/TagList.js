@@ -32,7 +32,7 @@ function TagList() {
       ) : blogTagList.failed ? (
         <div>ないです</div>
       ) : (
-        <div>なにか普通じゃない状態です</div>
+        <div>待機中です</div>
       )}
     </div>
   );
