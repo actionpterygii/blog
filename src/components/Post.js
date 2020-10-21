@@ -13,11 +13,11 @@ function Post() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (blogPost.fetching) {
-    return <div>よみこみちゅう</div>;
-  } else {
-    if (blogPost.success) {
-      return (
+  return (
+    <div>
+      {blogPost.fetching ? (
+        <div>よみこみちゅう</div>
+      ) : blogPost.success ? (
         <div>
           <h2>{blogPost.title}</h2>
           <div>{blogPost.content}</div>
@@ -34,13 +34,13 @@ function Post() {
             ))}
           </ul>
         </div>
-      );
-    } else if (blogPost.failed) {
-      return <div>ないです</div>;
-    } else {
-      return <div>待機中です</div>;
-    }
-  }
+      ) : blogPost.failed ? (
+        <div>ないです</div>
+      ) : (
+        <div>待機中です</div>
+      )}
+    </div>
+  );
 }
 
 export default Post;
