@@ -1,11 +1,13 @@
 import React from "react";
 
-import {TITLE, DESCRIPTION} from "../config";
+import {PATH, TITLE, DESCRIPTION} from "../config";
 
 function Header() {
   return (
     <header>
-      <h1>{TITLE}</h1>
+      <h1>
+        <a href={`${PATH}post`}>{TITLE}</a>
+      </h1>
       <p>{DESCRIPTION}</p>
     </header>
   );
