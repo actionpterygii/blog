@@ -14,25 +14,25 @@ function TagList() {
   return (
     <div>
       {blogTagList.fetching ? (
-        <div>よみこみちゅう</div>
+        <div className="loading">よみこみちゅう</div>
       ) : blogTagList.success ? (
         <div>
-          <h2>タグ覧</h2>
-          <ul>
+          <h2>タグ一覧</h2>
+          <ul className="tagList">
             {blogTagList.contents.map((category, i) => (
               <li key={i}>
                 <a href={`${PATH}tag/${category.id}`}>
-                  <h3>{category.name}</h3>
-                  <div>{category.desc}</div>
+                  <h3 className="tagName">{category.name}</h3>
+                  <div className="tagDesc">{category.desc}</div>
                 </a>
               </li>
             ))}
           </ul>
         </div>
       ) : blogTagList.failed ? (
-        <div>ないです</div>
+        <div className="nothing">ないです</div>
       ) : (
-        <div>待機中です</div>
+        <div className="waiting">待機中です</div>
       )}
     </div>
   );

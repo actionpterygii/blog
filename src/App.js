@@ -27,17 +27,19 @@ function App() {
     <HashRouter>
       <Header />
       <main>
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <Switch>
-          <Route exact path="/" component={PostList} />
-          <Route exact path="/post" component={PostList} />
-          <Route exact path="/post/:key" component={Post} />
-          <Route exact path="/category" component={CategoryList} />
-          <Route exact path="/category/:key" component={Category} />
-          <Route exact path="/tag" component={TagList} />
-          <Route exact path="/tag/:key" component={Tag} />
-          <Route exact path="/search" component={Search} />
-        </Switch>
+        <div className="inner">
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          <Switch>
+            <Route exact path="/" component={PostList} />
+            <Route exact path="/post" component={PostList} />
+            <Route exact path="/post/:key" component={Post} />
+            <Route exact path="/category" component={CategoryList} />
+            <Route exact path="/category/:key" component={Category} />
+            <Route exact path="/tag" component={TagList} />
+            <Route exact path="/tag/:key" component={Tag} />
+            <Route exact path="/search" component={Search} />
+          </Switch>
+        </div>
         <Menu />
       </main>
       <Footer />

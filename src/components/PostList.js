@@ -14,20 +14,24 @@ function PostList() {
   return (
     <div>
       {blogPostList.fetching ? (
-        <div>よみこみちゅう</div>
+        <div className="loading">よみこみちゅう</div>
       ) : blogPostList.success ? (
         <div>
           <h2>記事一覧</h2>
-          <ul>
+          <ul className="postList">
             {blogPostList.contents.map((blogPost, i) => (
               <li key={i}>
                 <a href={`${PATH}post/${postIdToPath(blogPost.id)}`}>
-                  <h3>{blogPost.title}</h3>
-                  <div>{blogPost.content}</div>
-                  <div>{blogPost.category.name}</div>
+                  <h3 className="postTitle">{blogPost.title}</h3>
+                  <div className="postContent">{blogPost.content}</div>
+                  <div className="postCategory">
+                    カテゴリー：{blogPost.category.name}
+                  </div>
                   <ul>
                     {blogPost.tags.map((tag, i) => (
-                      <li key={i}>{tag.name}</li>
+                      <li className="postTag" key={i}>
+                        {tag.name}
+                      </li>
                     ))}
                   </ul>
                 </a>
@@ -36,9 +40,10 @@ function PostList() {
           </ul>
           <div>
             {blogPostList.moreFetching ? (
-              <div>読み込み中</div>
+              <div className="loading">よみこみちゅう</div>
             ) : blogPostList.totalCount > blogPostList.contents.length ? (
               <button
+                className="more"
                 type="button"
                 onClick={() => fetchBlogPostList("continue")}
               >
@@ -50,9 +55,9 @@ function PostList() {
           </div>
         </div>
       ) : blogPostList.failed ? (
-        <div>ないです</div>
+        <div className="nothing">ないです</div>
       ) : (
-        <div>待機中です</div>
+        <div className="waiting">待機中です</div>
       )}
     </div>
   );

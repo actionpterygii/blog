@@ -14,25 +14,25 @@ function CategoryList() {
   return (
     <div>
       {blogCategoryList.fetching ? (
-        <div>よみこみちゅう</div>
+        <div className="loading">よみこみちゅう</div>
       ) : blogCategoryList.success ? (
         <div>
-          <h2>カテゴリ一覧</h2>
-          <ul>
+          <h2>カテゴリー一覧</h2>
+          <ul className="categoryList">
             {blogCategoryList.contents.map((category, i) => (
               <li key={i}>
                 <a href={`${PATH}category/${category.id}`}>
-                  <h3>{category.name}</h3>
-                  <div>{category.desc}</div>
+                  <h3 className="categoryName">{category.name}</h3>
+                  <div className="categoryDesc">{category.desc}</div>
                 </a>
               </li>
             ))}
           </ul>
         </div>
       ) : blogCategoryList.failed ? (
-        <div>ないです</div>
+        <div className="nothing">ないです</div>
       ) : (
-        <div>待機中です</div>
+        <div className="waiting">待機中です</div>
       )}
     </div>
   );

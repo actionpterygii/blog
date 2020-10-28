@@ -25,7 +25,7 @@ function PostList() {
         {searchText ? (
           <div>
             {blogPostList.fetching ? (
-              <div>よみこみちゅう</div>
+              <div className="loading">よみこみちゅう</div>
             ) : blogPostList.success ? (
               <div>
                 <ul>
@@ -46,7 +46,7 @@ function PostList() {
                 </ul>
                 <div>
                   {blogPostList.moreFetching ? (
-                    <div>読み込み中</div>
+                    <div className="loading">よみこみちゅう</div>
                   ) : blogPostList.totalCount > blogPostList.contents.length ? (
                     <button
                       type="button"
@@ -62,9 +62,9 @@ function PostList() {
                 </div>
               </div>
             ) : blogPostList.failed ? (
-              <div>ないです</div>
+              <div className="nothing">ないです</div>
             ) : (
-              <div>待機中です</div>
+              <div className="waiting">待機中です</div>
             )}
           </div>
         ) : (

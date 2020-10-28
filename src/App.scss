@@ -18,7 +18,8 @@
 body,
 header,main,section,
 div,section,
-h1,h2,h3,p,input,button,
+h1,h2,h3,h4,
+p,span,input,button,
 a,a:visited,
 ul,li,
 dl,dt,dd {
@@ -27,11 +28,172 @@ dl,dt,dd {
   outline: 0;
   border: 0;
   margin: 0;
+  text-decoration: none;
+  list-style: none;
+  word-break: break-all;
+  font-family: sans-serif;
+  font-size: 10px;
   color: var(--white);
   background-color: var(--black);
-  font-size: 12px;
-  font-family: sans-serif;
-  word-break: break-all;
-  cursor: default;
-  text-decoration: none;
+}
+
+
+.loading,
+.nothing,
+.waiting {
+  font-size: 18px;
+  color: var(--pink);
+  text-align: center;
+}
+
+
+header {
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 30px;
+  .inner {
+    max-width: 500px;
+    margin: 0 auto;
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      a {
+        width: 100%;
+        font-size: inherit;
+      }
+    }
+    p {
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+}
+
+main {
+  .inner {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    h2 {
+      font-size: 26px;
+    }
+    h3 {
+      font-size: 26px;
+    }
+    .desc {
+      font-size: 18px;
+    }
+    ul.postList {
+      &>li {
+        border: solid 1px var(--blue);
+        border-radius: 5px;
+        padding: 5px;
+        .postTitle {
+          font-size: 24px;
+          color: var(--black);
+          background-color: var(--yellow);
+          border: solid 1px var(--yellow);
+          border-radius: 5px;
+        }
+        .postContent {
+          font-size: 18px;
+        }
+        .postCategory {
+          font-size: 12px;
+        }
+        .postTag {
+          font-size: 12px;
+        }
+      }
+    }
+    .post {
+      .postTitle {
+        font-size: 26px;
+      }
+      .postContent {
+        font-size: 18px;
+        padding-bottom: 20px;
+      }
+      .postCategory {
+        font-size: 18px;
+        padding-bottom: 10px;
+        p {
+          font-size: inherit;
+        }
+        a {
+          padding: 4px;
+          font-size: inherit;
+          color: var(--yellow);
+          background-color: var(--blue);
+          border: solid 1px var(--blue);
+          border-radius: 5px;
+        }
+      }
+      .postTaglist {
+        p {
+          font-size: 18px;
+        }
+        .postTag {
+          display: inline-block;
+          font-size: 18px;
+          margin-right: 4px;
+          a {
+            padding: 4px;
+            font-size: inherit;
+            color: var(--yellow);
+            background-color: var(--blue);
+            border: solid 1px var(--blue);
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+    ul.categoryList {
+      &>li {
+        border: solid 1px var(--blue);
+        border-radius: 5px;
+        padding: 5px;
+        .categoryName {
+          font-size: 24px;
+          color: var(--black);
+          background-color: var(--yellow);
+          border: solid 1px var(--yellow);
+          border-radius: 5px;
+        }
+        .categoryDesc {
+          font-size: 18px;
+        }
+      }
+    }
+    ul.tagList {
+      &>li {
+        border: solid 1px var(--blue);
+        border-radius: 5px;
+        padding: 5px;
+        .tagName {
+          font-size: 24px;
+          color: var(--black);
+          background-color: var(--yellow);
+          border: solid 1px var(--yellow);
+          border-radius: 5px;
+        }
+        .tagDesc {
+          font-size: 18px;
+        }
+      }
+    }
+    button.more {
+      width: 100%;
+      display: inline-block;
+      color: var(--yellow);
+      background-color: var(--blue);
+      border: solid 1px var(--blue);
+      border-radius: 5px;
+      font-size: 18px;
+    }
+  }
+}
+
+footer {
+  text-align: center;
 }

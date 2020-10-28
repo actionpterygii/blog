@@ -23,27 +23,31 @@ function Tag() {
   return (
     <div>
       {blogTag.fetching ? (
-        <div>よみこみちゅうです</div>
+        <div className="loading">よみこみちゅう</div>
       ) : blogTag.success ? (
         <div>
-          <h2>{blogTag.name}</h2>
-          <div>{blogTag.desc}</div>
+          <h2>「{blogTag.name}」タグ</h2>
+          <div className="desc">{blogTag.desc}</div>
           <div>
             {blogPostList.fetching ? (
-              <div>よみこみちゅう</div>
+              <div className="loading">よみこみちゅう</div>
             ) : blogPostList.success ? (
               <div>
-                <h3>記事一覧</h3>
-                <ul>
+                <h3>の記事一覧</h3>
+                <ul className="postList">
                   {blogPostList.contents.map((blogPost, i) => (
                     <li key={i}>
                       <a href={`${PATH}post/${postIdToPath(blogPost.id)}`}>
-                        <h4>{blogPost.title}</h4>
-                        <div>{blogPost.content}</div>
-                        <div>{blogPost.category.name}</div>
+                        <h4 className="postTitle">{blogPost.title}</h4>
+                        <div className="postContent">{blogPost.content}</div>
+                        <div className="postCategory">
+                          カテゴリー：{blogPost.category.name}
+                        </div>
                         <ul>
                           {blogPost.tags.map((tag, i) => (
-                            <li key={i}>{tag.name}</li>
+                            <li className="postTag" key={i}>
+                              {tag.name}
+                            </li>
                           ))}
                         </ul>
                       </a>
@@ -52,7 +56,7 @@ function Tag() {
                 </ul>
                 <div>
                   {blogPostList.moreFetching ? (
-                    <div>読み込み中</div>
+                    <div className="loading">よみこみちゅう</div>
                   ) : blogPostList.totalCount > blogPostList.contents.length ? (
                     <button
                       type="button"
@@ -66,16 +70,16 @@ function Tag() {
                 </div>
               </div>
             ) : blogPostList.failed ? (
-              <div>ないです</div>
+              <div className="nothing">ないです</div>
             ) : (
-              <div>待機中です</div>
+              <div className="waiting">待機中です</div>
             )}
           </div>
         </div>
       ) : blogTag.failed ? (
-        <div>ないです</div>
+        <div className="nothing">ないです</div>
       ) : (
-        <div>待機中です。</div>
+        <div className="waiting">待機中です</div>
       )}
     </div>
   );

@@ -16,28 +16,32 @@ function Post() {
   return (
     <div>
       {blogPost.fetching ? (
-        <div>よみこみちゅう</div>
+        <div className="loading">よみこみちゅう</div>
       ) : blogPost.success ? (
-        <div>
-          <h2>{blogPost.title}</h2>
-          <div>{blogPost.content}</div>
-          <div>
+        <div className="post">
+          <h2 className="postTitle">{blogPost.title}</h2>
+          <div className="postContent">{blogPost.content}</div>
+          <div className="postCategory">
+            <p>カテゴリー</p>
             <a href={`${PATH}category/${blogPost.category.id}`}>
               {blogPost.category.name}
             </a>
           </div>
-          <ul>
-            {blogPost.tags.map((tag, i) => (
-              <li key={i}>
-                <a href={`${PATH}tag/${tag.id}`}>{tag.name}</a>
-              </li>
-            ))}
-          </ul>
+          <div className="postTaglist">
+            <p>タグ</p>
+            <ul>
+              {blogPost.tags.map((tag, i) => (
+                <li className="postTag" key={i}>
+                  <a href={`${PATH}tag/${tag.id}`}>{tag.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       ) : blogPost.failed ? (
-        <div>ないです</div>
+        <div className="nothing">ないです</div>
       ) : (
-        <div>待機中です</div>
+        <div className="waiting">待機中です</div>
       )}
     </div>
   );
