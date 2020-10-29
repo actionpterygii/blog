@@ -33,7 +33,7 @@ function PostList() {
                 <ul className="postList">
                   {blogPostList.contents.map((blogPost, i) => (
                     <li key={i}>
-                      <Link to={`post/${postIdToPath(blogPost.id)}`}>
+                      <Link to={`/post/${postIdToPath(blogPost.id)}`}>
                         <h3 className="postTitle">{blogPost.title}</h3>
                         <div className="postContent">{blogPost.content}</div>
                         <div className="postCategory">

@@ -8,7 +8,7 @@ function Header() {
     <header>
       <div className="inner">
         <h1>
-          <Link to={`post`}>{TITLE}</Link>
+          <Link to={`/`}>{TITLE}</Link>
         </h1>
         <p>{DESCRIPTION}</p>
       </div>

@@ -21,7 +21,7 @@ function CategoryList() {
           <ul className="categoryList">
             {blogCategoryList.contents.map((category, i) => (
               <li key={i}>
-                <Link to={`category/${category.id}`}>
+                <Link to={`/category/${category.id}`}>
                   <h3 className="categoryName">{category.name}</h3>
                   <div className="categoryDesc">{category.desc}</div>
                 </Link>

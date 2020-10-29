@@ -22,7 +22,7 @@ function Post() {
           <div className="postContent">{blogPost.content}</div>
           <div className="postCategory">
             <p>カテゴリー</p>
-            <Link to={`category/${blogPost.category.id}`}>
+            <Link to={`/category/${blogPost.category.id}`}>
               {blogPost.category.name}
             </Link>
           </div>
@@ -31,7 +31,7 @@ function Post() {
             <ul>
               {blogPost.tags.map((tag, i) => (
                 <li className="postTag" key={i}>
-                  <Link to={`tag/${tag.id}`}>{tag.name}</Link>
+                  <Link to={`/tag/${tag.id}`}>{tag.name}</Link>
                 </li>
               ))}
             </ul>

@@ -21,7 +21,7 @@ function TagList() {
           <ul className="tagList">
             {blogTagList.contents.map((category, i) => (
               <li key={i}>
-                <Link to={`tag/${category.id}`}>
+                <Link to={`/tag/${category.id}`}>
                   <h3 className="tagName">{category.name}</h3>
                   <div className="tagDesc">{category.desc}</div>
                 </Link>
