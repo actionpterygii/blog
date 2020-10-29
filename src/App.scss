@@ -40,10 +40,19 @@ dl,dt,dd {
 
 .loading,
 .nothing,
-.waiting {
+.waiting,
+.noinput {
   font-size: 18px;
   color: var(--pink);
   text-align: center;
+}
+
+.searchInput {
+  height: 28px;
+  width: 100%;
+  font-size: 28px;
+  border-bottom: solid var(--blue) 3px;
+  margin-bottom: 40px;
 }
 
 

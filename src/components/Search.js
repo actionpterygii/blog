@@ -16,6 +16,7 @@ function PostList() {
     <div>
       <div>
         <input
+          className="searchInput"
           type="text"
           value={searchText}
           onChange={(e) => changeSearchText(e.currentTarget.value)}
@@ -28,16 +29,20 @@ function PostList() {
               <div className="loading">よみこみちゅう</div>
             ) : blogPostList.success ? (
               <div>
-                <ul>
+                <ul className="postList">
                   {blogPostList.contents.map((blogPost, i) => (
                     <li key={i}>
                       <a href={`${PATH}post/${postIdToPath(blogPost.id)}`}>
-                        <h3>{blogPost.title}</h3>
-                        <div>{blogPost.content}</div>
-                        <div>{blogPost.category.name}</div>
+                        <h3 className="postTitle">{blogPost.title}</h3>
+                        <div className="postContent">{blogPost.content}</div>
+                        <div className="postCategory">
+                          カテゴリー：{blogPost.category.name}
+                        </div>
                         <ul>
                           {blogPost.tags.map((tag, i) => (
-                            <li key={i}>{tag.name}</li>
+                            <li className="postTag" key={i}>
+                              {tag.name}
+                            </li>
                           ))}
                         </ul>
                       </a>
@@ -68,7 +73,7 @@ function PostList() {
             )}
           </div>
         ) : (
-          <div>検索文字を入力してください</div>
+          <div className="noinput">検索文字を入力してください</div>
         )}
       </div>
     </div>
