@@ -28,7 +28,6 @@ function App() {
       <Header />
       <main>
         <div className="inner">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <Switch>
             <Route exact path="/" component={PostList} />
             <Route exact path="/post" component={PostList} />
@@ -41,6 +40,7 @@ function App() {
           </Switch>
         </div>
         <Menu />
+        <img src={logo} className="App-logo" alt="logo" width="100px" />
       </main>
       <Footer />
     </HashRouter>

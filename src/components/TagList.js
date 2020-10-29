@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
+import {Link} from "react-router-dom";
 
-import {PATH} from "../config";
 import useAPI from "../scripts/useAPI";
 
 function TagList() {
@@ -21,10 +21,10 @@ function TagList() {
           <ul className="tagList">
             {blogTagList.contents.map((category, i) => (
               <li key={i}>
-                <a href={`${PATH}tag/${category.id}`}>
+                <Link to={`tag/${category.id}`}>
                   <h3 className="tagName">{category.name}</h3>
                   <div className="tagDesc">{category.desc}</div>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

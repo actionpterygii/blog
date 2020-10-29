@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
+import {Link} from "react-router-dom";
 
-import {PATH} from "../config";
 import useAPI from "../scripts/useAPI";
 
 function CategoryList() {
@@ -21,10 +21,10 @@ function CategoryList() {
           <ul className="categoryList">
             {blogCategoryList.contents.map((category, i) => (
               <li key={i}>
-                <a href={`${PATH}category/${category.id}`}>
+                <Link to={`category/${category.id}`}>
                   <h3 className="categoryName">{category.name}</h3>
                   <div className="categoryDesc">{category.desc}</div>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

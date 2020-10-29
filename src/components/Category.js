@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
-import {PATH} from "../config";
 import useAPI from "../scripts/useAPI";
 
 function Category() {
@@ -37,7 +36,7 @@ function Category() {
                 <ul className="postList">
                   {blogPostList.contents.map((blogPost, i) => (
                     <li key={i}>
-                      <a href={`${PATH}post/${postIdToPath(blogPost.id)}`}>
+                      <Link to={`post/${postIdToPath(blogPost.id)}`}>
                         <h4 className="postTitle">{blogPost.title}</h4>
                         <div className="postContent">{blogPost.content}</div>
                         <div className="postCategory">
@@ -50,7 +49,7 @@ function Category() {
                             </li>
                           ))}
                         </ul>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

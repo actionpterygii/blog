@@ -1,13 +1,14 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
-import {PATH, TITLE, DESCRIPTION} from "../config";
+import {TITLE, DESCRIPTION} from "../config";
 
 function Header() {
   return (
     <header>
       <div className="inner">
         <h1>
-          <a href={`${PATH}post`}>{TITLE}</a>
+          <Link to={`post`}>{TITLE}</Link>
         </h1>
         <p>{DESCRIPTION}</p>
       </div>

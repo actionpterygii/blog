@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
-import {PATH} from "../config";
 import useAPI from "../scripts/useAPI";
 
 function Post() {
@@ -23,16 +22,16 @@ function Post() {
           <div className="postContent">{blogPost.content}</div>
           <div className="postCategory">
             <p>カテゴリー</p>
-            <a href={`${PATH}category/${blogPost.category.id}`}>
+            <Link to={`category/${blogPost.category.id}`}>
               {blogPost.category.name}
-            </a>
+            </Link>
           </div>
           <div className="postTaglist">
             <p>タグ</p>
             <ul>
               {blogPost.tags.map((tag, i) => (
                 <li className="postTag" key={i}>
-                  <a href={`${PATH}tag/${tag.id}`}>{tag.name}</a>
+                  <Link to={`tag/${tag.id}`}>{tag.name}</Link>
                 </li>
               ))}
             </ul>
